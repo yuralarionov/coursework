@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: "Raleway-Regular";
+    src: url("./fonts/Raleway/static/Raleway-Regular.ttf");
+}
+
+body {
+    font-family: 'Raleway-Regular';
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.appear-animation {
+    animation: appear 1s both;
+}
+
+@keyframes appear {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}

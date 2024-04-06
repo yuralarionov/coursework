@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import banner from '../img/banner.jpg';
 import { Link } from 'react-router-dom';
@@ -33,7 +33,7 @@ const serviceList = [
 
 function ServiceCard({ svg, title, text }) {
   return (
-    <Link className='bg-mainColor h-96 w-96 flex flex-col justify-between p-10' to='/services'>
+    <Link className='bg-mainColor w-full h-96 md:w-80 h-80 lg:h-96 w-96 flex flex-col justify-between p-10' to='/services'>
       {svg}
       <div className=''>
         <h1 className='text-slate-100 font-bold'>{title}</h1>
@@ -50,41 +50,57 @@ export default function Home() {
       return (<ServiceCard title={elem.title} svg={elem.svg} text={elem.text} />);
     }
   );
+
+  const [formModal, setformModal] = useState(false);
+
+  function formModalOpen(){
+    document.body.style.overflow = "hidden";
+    setformModal(true);
+  }
+
+  function formModalClose(){
+    document.body.style.overflow = "scroll";
+    setformModal(false);
+  }
+  
   return(
+    <>
     <main >
-      <div className='w-full h-100 relative'>
-        <img src={banner} alt='img' className='w-full h-full object-cover	absolute '/>
-        <div className='relative text-slate-100	text-2xl p-10 relative'>
-          <h1>ПОДБЕРЁМ МАШИНУ И НАСТРОИМ ЕЁ<br></br></h1>
-          <h1 className='font-bold'>СПЕЦИАЛЬНО ДЛЯ ВАС</h1>
-          <button className='p-2.5 mt-2 rounded-xl	bg-red-600 text-slate-100 font-bold hover:bg-red-700 active:bg-red-700'>ЗАПИШИТЕСЬ НА ПРИЁМ</button>
+      <div className='w-full h-100 relative after:content-[""] after:absolute after:bg-black/50 after:top-0 after:left-0 after:right-0 after:bottom-0'>
+        <img src={banner} alt='img' className='w-full h-full object-cover	absolute'/>
+        <div className='h-full flex flex-col justify-center relative text-slate-100	text-5xl p-20 z-10'>
+          <div>
+            <h1>ПОДБЕРЁМ МАШИНУ И НАСТРОИМ ЕЁ<br></br></h1>
+            <h1 className='font-bold'>СПЕЦИАЛЬНО ДЛЯ ВАС</h1>
+          </div>
+          <button onClick={formModalOpen} className='w-72 text-xl p-2.5 mt-10	bg-red-600 text-slate-100 font-bold hover:bg-gray-900 active:bg-red-700'>ЗАПИШИТЕСЬ НА ПРИЁМ</button>
         </div>
       </div>
-      <div className='m-10 flex flex-rows gap-10'>
+      <div className='grid grid-cols-1 md:grid-cols-2 justify-items-center lg:flex lg:flex-row justify-center gap-10 m-10'>
         {serviceListJsx}
       </div>
-      <div className='bg-black flex flex-col items-center p-5 mb-0.5'>
-        <p className='text-gray-400 text-xs	p-2'>НЕМНОГО СТАТИСТИКИ О НАС</p>
-        <h1 className='text-slate-100 font-bold	text-lg	'>СТАТИСТИКА ПО РЕМОНТУ АВТОМОБИЛЕЙ</h1>
-        <h1 className='text-slate-100 font-extralight	mb-1.5'>КОТОРУЮ ВЫ ДОЛЖНЫ ЗНАТЬ</h1>
-        <div className='flex justify-center	gap-14'>
+      <div className='bg-zinc-900	 flex flex-col justify-between items-center p-14 mb-0.5'>
+          <p className='text-gray-400 mb-2'>НЕМНОГО СТАТИСТИКИ О НАС</p>
+          <h1 className='text-slate-100 font-bold	text-4xl text-center'>СТАТИСТИКА ПО РЕМОНТУ АВТОМОБИЛЕЙ</h1>
+          <h1 className='text-slate-100 font-light	mb-2 mt-2 text-4xl text-center'>КОТОРУЮ ВЫ ДОЛЖНЫ ЗНАТЬ</h1>
+        <div className='w-full flex flex-col md:flex md:flex-row justify-center'>
           <div className='flex flex-col items-center'>
-            <h1 className='text-red-700 font-bold text-4xl mb-1'>10</h1>
-            <div className='text-slate-100 border-t-2 text-center'>
+            <h1 className='text-red-700 font-bold text-6xl mb-1'>10</h1>
+            <div className='text-2xl text-slate-100 border-t w-11/12 text-center mt-2 p-1'>
               <h1 className='font-light'>ЛЕТ</h1>
               <h1 className='font-bold'>ОПЫТА</h1>
             </div>
           </div>
           <div className='flex flex-col items-center'>
-            <h1 className='text-red-700 font-bold text-4xl mb-1'>32</h1>
-            <div className='text-slate-100 border-t-2 text-center'>
+            <h1 className='text-red-700 font-bold text-6xl mb-1'>32</h1>
+            <div className='text-2xl text-slate-100 border-t w-11/12 text-center mt-2 p-1'>
               <h1 className='font-light'>ПРОФЕССИОНАЛОВ И</h1>
               <h1 className='font-bold'>РАБОТНИКОВ</h1>
             </div>
           </div>
           <div className='flex flex-col items-center'>
-            <h1 className='text-red-700 font-bold text-4xl mb-1'>2578</h1>
-            <div className='text-slate-100 border-t-2 text-center'>
+            <h1 className='text-red-700 font-bold text-6xl mb-1'>2578</h1>
+            <div className='text-2xl text-slate-100 border-t w-11/12 text-center mt-2 p-1'>
               <h1 className='font-light'>ДОВОЛЬНЫХ</h1>
               <h1 className='font-bold'>КЛИЕНТОВ</h1>
             </div>
@@ -92,6 +108,75 @@ export default function Home() {
         </div>
       </div>
     </main>
+    {
+      formModal
+        ? <Modal closeModal={formModalClose} />
+        : ''
+    }
+    </>
   )
 }
 
+function Modal({closeModal}) {
+  function handleClick(e) {
+    if (e.target.classList.contains('js-modal')) {
+      closeModal();
+    }
+  }
+
+  return(
+    <div onClick={handleClick} className='js-modal fixed z-30 top-0 left-0 w-full h-full bg-black/75 flex justify-end'>
+      <div className='w-full md:w-1/2 lg:w-1/4 bg-white h-full appear-animation'>
+        <div className='flex justify-end'>
+          <div onClick={closeModal} className='bg-black h-8 w-8 flex justify-center items-center'>
+            <svg className='h-6 fill-white font-light hover:fill-red-700' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
+          </div>
+        </div>
+        <div className='flex flex-col gap-4 p-10'>
+          <h1 className='text-slate-400	text-xl font-semibold	'>Выберите услугу</h1>
+          <div>
+            <p className='text-slate-400'>Категории обслуживания</p>
+            <select className='border p-2 w-full text-slate-400'>
+              <option value="" key="">--Любой--</option>
+              <option value="" key="">--Любой--</option>
+              <option value="" key="">--Любой--</option>
+              <option value="" key="">--Любой--</option>
+              <option value="" key="">--Любой--</option>
+            </select>
+          </div>
+          <div>
+            <p className='text-slate-400'>Сервис</p>
+            <select className='border p-2 w-full text-slate-400'>
+              <option value="" key="">--Любой--</option>
+              <option value="" key="">--Любой--</option>
+              <option value="" key="">--Любой--</option>
+              <option value="" key="">--Любой--</option>
+              <option value="" key="">--Любой--</option>
+            </select>
+          </div>
+          <div>
+            <p className='text-slate-400'>Адрес</p>
+            <select className='border p-2 w-full text-slate-400'>
+              <option value="" key="">--Любой--</option>
+              <option value="" key="">--Любой--</option>
+              <option value="" key="">--Любой--</option>
+              <option value="" key="">--Любой--</option>
+              <option value="" key="">--Любой--</option>
+            </select>
+          </div>
+          <div>
+            <p className='text-slate-400'>Работник</p>
+            <select className='border p-2 w-full text-slate-400'>
+              <option value="" key="">--Любой--</option>
+              <option value="" key="">--Любой--</option>
+              <option value="" key="">--Любой--</option>
+              <option value="" key="">--Любой--</option>
+              <option value="" key="">--Любой--</option>
+            </select>
+          </div>
+          <button className='bg-red-600 hover:bg-red-700 p-3 text-white font-semibold'>Отправить</button>
+        </div>
+      </div>
+    </div>
+  )
+}

@@ -47,7 +47,7 @@ function ServicesList({ text }) {
 
 function StageList({ img, title, text_1 }) {
   return (
-    <div className=''>
+    <div className='flex flex-col jusify-center items-center'>
       <img src={img} alt='img' />
       <div className='mt-4 text-2xl	'>
         <h1 className='font-bold'>{title}</h1>
@@ -65,46 +65,46 @@ export default function Services() {
     return (<StageList key={i} img={elem.img} title={elem.title} text_1={elem.text_1} />);
   });
 
-  const [searchModal, setSearchModal] = useState(false);
+  const [formModal, setformModal] = useState(false);
 
-  function searchModalOpen(){
+  function formModalOpen(){
     document.body.style.overflow = "hidden";
-    setSearchModal(true);
+    setformModal(true);
   }
 
-  function searchModalClose(){
+  function formModalClose(){
     document.body.style.overflow = "scroll";
-    setSearchModal(false);
+    setformModal(false);
   }
 
   return (
     <>
     <main>
-      <div className='flex justify-around bg-gray-200 p-5'>
+      <div className='gap-10 flex flex-col lg:flex lg:flex-row justify-around  bg-gray-200 p-8 gap-10'>
         <div>
           <h1 className='font-bold text-slate-400	'>НАШИ УСЛУГИ</h1>
-          <h1 className='text-3xl	font-thin	mt-3'>НИЖЕ ПРИВЕДЕНЫ НЕКОТОРЫЕ</h1>
+          <h1 className='text-3xl	font-thin	mt-5'>НИЖЕ ПРИВЕДЕНЫ НЕКОТОРЫЕ</h1>
           <h1 className='text-3xl font-extrabold mt-1'>ИЗ УСЛУГ ПО ОБСЛУЖИВАНИЮ АВТОМОБИЛЕЙ,<br></br> КОТОРЫЕ МЫ ПРЕДЛГАЕМ:</h1>
-          <p className='mt-5 text-slate-600'>Познакомьтесь с квалифицированной командой механиков <br></br>с более чем 5-летним безупречным опытом работы в сфере ремонта автомобилей!<br></br>Мы используем только высококачественные запчасти<br></br>и стремимся сделать ваши поездки безопасными и комфортными!<br></br>Мы всегда рады помочь вам в решении этих задач.</p>
-          <button onClick={searchModalOpen} className='p-3 mt-5	bg-red-600 text-slate-100 font-bold hover:bg-red-700'>ЗАПИСАТЬСЯ НА ПРИЁМ</button>
+          <p className='mt-10 text-slate-600'>Познакомьтесь с квалифицированной командой механиков <br></br>с более чем 5-летним безупречным опытом работы в сфере ремонта автомобилей!<br></br>Мы используем только высококачественные запчасти<br></br>и стремимся сделать ваши поездки безопасными и комфортными!<br></br>Мы всегда рады помочь вам в решении этих задач.</p>
+          <button onClick={formModalOpen} className='p-3 mt-12	bg-red-600 text-slate-100 font-bold hover:bg-gray-900'>ЗАПИСАТЬСЯ НА ПРИЁМ</button>
         </div>
         <div className='flex flex-col justify-center gap-2'>
           {serviceListJsx}
         </div>
       </div>
       <div className='p-14 flex flex-col justify-center items-center'>
-        <div className='flex flex-row gap-3 text-4xl'>
+        <div className='flex flex-col justify-center items-center md:flex md:flex-row gap-3 text-4xl'>
           <h1>КАК ЭТО</h1>
           <h1 className='font-bold'>РАБОТАЕТ</h1>
         </div>
-        <div className='mt-8 flex gap-10'>
+        <div className='grid grid-cols-1 place-items-center md:grid md:grid-cols-2  lg:flex lg:flex-row jusyify-center items-center gap-5 mt-8'>
           {stagesJsx}
         </div>
       </div>
     </main>
     {
-      searchModal
-        ? <Modal closeModal={searchModalClose} />
+      formModal
+        ? <Modal closeModal={formModalClose} />
         : ''
     }
     </>
@@ -119,8 +119,8 @@ function Modal({closeModal}) {
   }
 
   return(
-    <div onClick={handleClick} className='js-modal fixed z-10 top-0 left-0 w-full h-full bg-black/75 flex justify-end'>
-      <div className='bg-white h-full w-1/4 appear-animation'>
+    <div onClick={handleClick} className='js-modal fixed z-30 top-0 left-0 w-full h-full bg-black/75 flex justify-end'>
+      <div className='w-full md:w-1/2 lg:w-1/4 bg-white h-full appear-animation'>
         <div className='flex justify-end'>
           <div onClick={closeModal} className='bg-black h-8 w-8 flex justify-center items-center'>
             <svg className='h-6 fill-white font-light hover:fill-red-700' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>

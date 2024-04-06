@@ -39,12 +39,12 @@ export default function About() {
     }
   );
   return (
-    <main className='flex flex-col justify-center items-center p-20'>
-      <div className='flex flex-row gap-3 text-5xl'>
+    <main className='lg:flex lg:flex-col justify-center items-center p-20'>
+      <div className='flex flex-col justify-center items-center text-5xl text-center'>
         <h1>ПОЧЕМУ СТОИТ ВЫБРАТЬ</h1>
         <h1 className='font-bold'>НАШ АВТОСАЛОН?</h1>
       </div>
-      <div className='flex flex-row justify-center items-center gap-10 mt-10'>
+      <div className='flex flex-col w-full md:flex md:flex-row justify-center gap-10 mt-10'>
         {ListJsx}
       </div>
     </main>

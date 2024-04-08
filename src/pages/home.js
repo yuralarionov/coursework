@@ -79,7 +79,7 @@ export default function Home() {
       <div className='grid grid-cols-1 md:grid-cols-2 justify-items-center lg:flex lg:flex-row justify-center gap-10 m-10'>
         {serviceListJsx}
       </div>
-      <div className='bg-zinc-900	 flex flex-col justify-between items-center p-14 mb-0.5'>
+      <div className='bg-zinc-900	 flex flex-col justify-between items-center p-14 '>
           <p className='text-gray-400 mb-2'>НЕМНОГО СТАТИСТИКИ О НАС</p>
           <h1 className='text-slate-100 font-bold	text-4xl text-center'>СТАТИСТИКА ПО РЕМОНТУ АВТОМОБИЛЕЙ</h1>
           <h1 className='text-slate-100 font-light	mb-2 mt-2 text-4xl text-center'>КОТОРУЮ ВЫ ДОЛЖНЫ ЗНАТЬ</h1>

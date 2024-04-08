@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-// import { Wrapper, Status } from "@googlemaps/react-wrapper";
+import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 
 import car from '../img/car.png'
 
@@ -55,7 +55,15 @@ export default function Contact() {
           </div>
         </div>
       </div>
-      {/* карта google */}
+      <div className='flex justify-center items-center '>
+        <YMaps width='100%'>
+          <Map height='650px' width='100%' defaultState={{ center: [60.045730, 30.361229], zoom: 14 }}>
+            <Placemark geometry={[60.056544, 30.349034]} />
+            <Placemark geometry={[60.035175, 30.384185]} />
+          </Map>
+        </YMaps>
+      </div>
+      
     </main>
     {
       formModal

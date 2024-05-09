@@ -7,8 +7,8 @@ import img4 from '../img/services_img/img4.jpg';
 
 const point = <svg className='h-5 w-5 fill-red-600' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z"/></svg>
 const services = [
-  {text: 'Общий ремонт и техническое обслуживание автомобилей'},{text: 'Профилактическое обслуживание транспортных средств'},{text: 'Ремонт и замена тормозов'},
-  {text: 'Ремонт топливной системы'},{text: 'Электрическая диагностика'},{text: 'Ремонт и замена тормозов'},{text: 'Ремонт и замена шин'},{text: 'Замена и установка допоборудования'},{text: 'Тюнинг'}
+  {text: 'Общий ремонт и техническое обслуживание автомобилей'},{text: 'Профилактическое обслуживание транспортных средств'},{text: 'Мойка и детейлинг'},{text: 'Ремонт и замена тормозов'},
+  {text: 'Ремонт топливной системы'},{text: 'Ремонт и замена тормозов'},{text: 'Ремонт и замена шин'},{text: 'Электрическая диагностика'},{text: 'Замена и установка допоборудования'},{text: 'Тюнинг'}
 ]
 
 const stages = [
@@ -59,7 +59,7 @@ function StageList({ img, title, text_1 }) {
 
 export default function Services() {
   const serviceListJsx = services.map((elem) => {
-    return (<ServicesList svg={elem.svg} text={elem.text} />);
+    return (<ServicesList text={elem.text} />);
   });
   const stagesJsx = stages.map((elem, i) => {
     return (<StageList key={i} img={elem.img} title={elem.title} text_1={elem.text_1} />);
@@ -86,7 +86,7 @@ export default function Services() {
           <h1 className='text-3xl	font-thin	mt-5'>НИЖЕ ПРИВЕДЕНЫ НЕКОТОРЫЕ</h1>
           <h1 className='text-3xl font-extrabold mt-1'>ИЗ УСЛУГ ПО ОБСЛУЖИВАНИЮ АВТОМОБИЛЕЙ,<br></br> КОТОРЫЕ МЫ ПРЕДЛГАЕМ:</h1>
           <p className='mt-10 text-slate-600'>Познакомьтесь с квалифицированной командой механиков <br></br>с более чем 5-летним безупречным опытом работы в сфере ремонта автомобилей!<br></br>Мы используем только высококачественные запчасти<br></br>и стремимся сделать ваши поездки безопасными и комфортными!<br></br>Мы всегда рады помочь вам в решении этих задач.</p>
-          <button onClick={formModalOpen} className='p-3 mt-12	bg-red-600 text-slate-100 font-bold hover:bg-gray-900'>ЗАПИСАТЬСЯ НА ПРИЁМ</button>
+          <button onClick={formModalOpen} className='p-3 mt-8	bg-red-600 text-slate-100 font-bold hover:bg-gray-900'>ЗАПИСАТЬСЯ НА ПРИЁМ</button>
         </div>
         <div className='flex flex-col justify-center gap-2'>
           {serviceListJsx}
@@ -131,44 +131,32 @@ function Modal({closeModal}) {
           <div>
             <p className='text-slate-400'>Категории обслуживания</p>
             <select className='border p-2 w-full text-slate-400'>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
+              <option value="" key="">--Любая--</option>
+              <option value="" key="">Покупка машины</option>
+              <option value="" key="">Профилактическое обслуживание</option>
+              <option value="" key="">Полный ремонт</option>
+              <option value="" key="">Тюнинг</option>
             </select>
           </div>
           <div>
-            <p className='text-slate-400'>Сервис</p>
+            <p className='text-slate-400'>Услуга</p>
             <select className='border p-2 w-full text-slate-400'>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
+              <option value="" key="">--Любая--</option>
+              <option value="" key="">Ремонт и замена тормозов</option>
+              <option value="" key="">Ремонт топливной системы</option>
+              <option value="" key="">Мойка и детейлинг</option>
+              <option value="" key="">Ремонт электрики</option>
             </select>
           </div>
           <div>
             <p className='text-slate-400'>Адрес</p>
             <select className='border p-2 w-full text-slate-400'>
               <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
+              <option value="" key="">Придорожная аллея, 7</option>
+              <option value="" key="">Учительская улица, 3</option>
             </select>
           </div>
-          <div>
-            <p className='text-slate-400'>Работник</p>
-            <select className='border p-2 w-full text-slate-400'>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-            </select>
-          </div>
-          <button className='bg-red-600 hover:bg-red-700 p-3 text-white font-semibold'>Отправить</button>
+          <button className='bg-red-600 hover:bg-gray-900 p-3 text-white font-semibold'>Отправить</button>
         </div>
       </div>
     </div>

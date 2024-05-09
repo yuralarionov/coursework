@@ -332,7 +332,7 @@ function AvtoList({ img, model, price }) {
       <div className='w-full mt-4 text-2xl flex	flex-col jusify-center items-center'>
         <h1 className='font-bold'>{model}</h1>
         <h1 className=''>{price}</h1>
-        <button onClick={formModalOpen} className='py-2 px-6 bg-red-700 border border-black rounded-3xl text-white'>Заказать</button>
+        <button onClick={formModalOpen} className='py-2 px-6 bg-red-700 border border-black rounded-3xl text-white hover:bg-gray-900'>Заказать</button>
       </div>
     </div>
     {
@@ -394,7 +394,7 @@ function Modal({closeModal}) {
 export default function Catalog() {
   return (
     <main className='flex flex-col gap-5 p-8 '>
-      <div className='flex flex-row justify-start	gap-10'>
+      {/* <div className='flex flex-row justify-start	gap-10'>
         <div className='flex flex-col justify-center items-center'>
           <p className='text-red-700 font-bold text-2xl mb-2'>Марка</p>
           <select className='border-2 border-black py-3 px-20 w-full font-bold'>
@@ -418,7 +418,7 @@ export default function Catalog() {
         <div className='flex items-end'>
           <button className='bg-red-700 py-3 px-20 border border-black rounded-2xl text-white font-bold'>Показать</button>
         </div>
-      </div>
+      </div> */}
       <AvtoSection mark_name="Toyota"start = {0} end = {6}/>
       <AvtoSection mark_name="Audi"start = {6} end = {12}/>
       <AvtoSection mark_name="Nissan"start = {12} end = {20}/>

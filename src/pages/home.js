@@ -12,7 +12,7 @@ const serviceList = [
   {
     title: "ПРОДАЖА МАШИН",
     svg: sale,
-    text: 'САМЫЕ КРУТЫЕ ЯПОНСКИЕ МАШИНЫ',
+    text: 'САМЫЕ КРУТЫЕ ЯПОНСКИЕ И НЕМЕЦКИЕ МАШИНЫ',
   },
   {
     title: "ПРОФИЛАКТИЧЕСКОЕ ОБСЛУЖИВАНИЕ",
@@ -33,7 +33,7 @@ const serviceList = [
 
 function ServiceCard({ svg, title, text }) {
   return (
-    <Link className='bg-mainColor w-full h-96 md:w-80 h-80 lg:h-96 w-96 flex flex-col justify-between p-10' to='/services'>
+    <Link className='bg-red-700 hover:bg-gray-800 w-full h-96 md:w-80 h-80 lg:h-96 w-96 flex flex-col justify-between p-10' to='/services'>
       {svg}
       <div className=''>
         <h1 className='text-slate-100 font-bold'>{title}</h1>
@@ -79,32 +79,16 @@ export default function Home() {
       <div className='grid grid-cols-1 md:grid-cols-2 justify-items-center lg:flex lg:flex-row justify-center gap-10 m-10'>
         {serviceListJsx}
       </div>
-      <div className='bg-zinc-900	 flex flex-col justify-between items-center p-14 '>
-          <p className='text-gray-400 mb-2'>НЕМНОГО СТАТИСТИКИ О НАС</p>
-          <h1 className='text-slate-100 font-bold	text-4xl text-center'>СТАТИСТИКА ПО РЕМОНТУ АВТОМОБИЛЕЙ</h1>
-          <h1 className='text-slate-100 font-light	mb-2 mt-2 text-4xl text-center'>КОТОРУЮ ВЫ ДОЛЖНЫ ЗНАТЬ</h1>
-        <div className='w-full flex flex-col md:flex md:flex-row justify-center'>
-          <div className='flex flex-col items-center'>
-            <h1 className='text-red-700 font-bold text-6xl mb-1'>10</h1>
-            <div className='text-2xl text-slate-100 border-t w-11/12 text-center mt-2 p-1'>
-              <h1 className='font-light'>ЛЕТ</h1>
-              <h1 className='font-bold'>ОПЫТА</h1>
-            </div>
-          </div>
-          <div className='flex flex-col items-center'>
-            <h1 className='text-red-700 font-bold text-6xl mb-1'>32</h1>
-            <div className='text-2xl text-slate-100 border-t w-11/12 text-center mt-2 p-1'>
-              <h1 className='font-light'>ПРОФЕССИОНАЛОВ И</h1>
-              <h1 className='font-bold'>РАБОТНИКОВ</h1>
-            </div>
-          </div>
-          <div className='flex flex-col items-center'>
-            <h1 className='text-red-700 font-bold text-6xl mb-1'>2578</h1>
-            <div className='text-2xl text-slate-100 border-t w-11/12 text-center mt-2 p-1'>
-              <h1 className='font-light'>ДОВОЛЬНЫХ</h1>
-              <h1 className='font-bold'>КЛИЕНТОВ</h1>
-            </div>
-          </div>
+      <div className='flex flex-row justify-center items-center w-full bg-red-700 py-5 text-white'>
+        <div className='flex flex-col border-x-8 border-dashed p-10'>
+          <p className='text-lg'>Купон</p>
+          <h1 className='font-bold text-6xl'>25%</h1>
+          <h1 className='text-2xl'>СКИДКА</h1>
+        </div>
+        <div className='flex flex-col p-20'>
+          <h1 className='text-4xl'>НАШИ ПОСЛЕДНИЕ СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ</h1>
+          <h1 className='text-4xl font-bold mt-1.5'>ЛЮБАЯ УСЛУГА НА СУММУ ОТ 5000 РУБЛЕЙ</h1>
+          <p className='mt-3'>Мы ценим наших клиентов, поэтому хотим дать вам эту специальную скидку,<br/> чтобы вы могли использовать ее, чтобы сделать свой автомобиль лучше!</p>
         </div>
       </div>
     </main>
@@ -137,44 +121,32 @@ function Modal({closeModal}) {
           <div>
             <p className='text-slate-400'>Категории обслуживания</p>
             <select className='border p-2 w-full text-slate-400'>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
+              <option value="" key="">--Любая--</option>
+              <option value="" key="">Покупка машины</option>
+              <option value="" key="">Профилактическое обслуживание</option>
+              <option value="" key="">Полный ремонт</option>
+              <option value="" key="">Тюнинг</option>
             </select>
           </div>
           <div>
-            <p className='text-slate-400'>Сервис</p>
+            <p className='text-slate-400'>Услуга</p>
             <select className='border p-2 w-full text-slate-400'>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
+              <option value="" key="">--Любая--</option>
+              <option value="" key="">Ремонт и замена тормозов</option>
+              <option value="" key="">Ремонт топливной системы</option>
+              <option value="" key="">Мойка и детейлинг</option>
+              <option value="" key="">Ремонт электрики</option>
             </select>
           </div>
           <div>
             <p className='text-slate-400'>Адрес</p>
             <select className='border p-2 w-full text-slate-400'>
               <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
+              <option value="" key="">Придорожная аллея, 7</option>
+              <option value="" key="">Учительская улица, 3</option>
             </select>
           </div>
-          <div>
-            <p className='text-slate-400'>Работник</p>
-            <select className='border p-2 w-full text-slate-400'>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-            </select>
-          </div>
-          <button className='bg-red-600 hover:bg-red-700 p-3 text-white font-semibold'>Отправить</button>
+          <button className='bg-red-600 hover:bg-gray-900 p-3 text-white font-semibold'>Отправить</button>
         </div>
       </div>
     </div>

@@ -28,7 +28,6 @@ export default function Header() {
         <Link to = "/"><img src={logo} alt='img' className='h-20	w-auto' /></Link>
           <div className='hidden md:flex flex-row justify-center items-center lg:items-center gap-10  my-2 text-white'>
             <Link to = "/" className='hover:text-red-500'>Главная</Link>
-            <Link to = "/news" className='hover:text-red-500'>Новости</Link>
             <Link to = "/about" className='hover:text-red-500'>О компании</Link>
             <Link to = "/contact" className='hover:text-red-500'>Контакты</Link>
             <Link to = "/catalog" className='hover:text-red-500'>Каталог</Link>

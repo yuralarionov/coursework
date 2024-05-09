@@ -38,6 +38,7 @@ export default function Contact() {
           <div className='flex flex-col'>
             <p className='text-slate-300 text-xl'>Адрес:</p>
             <p className='text-slate-300 text-xl font-bold'>Придорожная аллея, 7, Санкт-Петербург</p>
+            <p className='text-slate-300 text-xl font-bold'>Учительская улица, 3, Санкт-Петербург</p>
           </div>
         </div>
         <div className='flex flex-col text-center lg:flex lg:flex-row justify-center	items-center w-full'>
@@ -63,7 +64,6 @@ export default function Contact() {
           </Map>
         </YMaps>
       </div>
-      
     </main>
     {
       formModal
@@ -95,44 +95,32 @@ function Modal({closeModal}) {
           <div>
             <p className='text-slate-400'>Категории обслуживания</p>
             <select className='border p-2 w-full text-slate-400'>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
+              <option value="" key="">--Любая--</option>
+              <option value="" key="">Покупка машины</option>
+              <option value="" key="">Профилактическое обслуживание</option>
+              <option value="" key="">Полный ремонт</option>
+              <option value="" key="">Тюнинг</option>
             </select>
           </div>
           <div>
-            <p className='text-slate-400'>Сервис</p>
+            <p className='text-slate-400'>Услуга</p>
             <select className='border p-2 w-full text-slate-400'>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
+              <option value="" key="">--Любая--</option>
+              <option value="" key="">Ремонт и замена тормозов</option>
+              <option value="" key="">Ремонт топливной системы</option>
+              <option value="" key="">Мойка и детейлинг</option>
+              <option value="" key="">Ремонт электрики</option>
             </select>
           </div>
           <div>
             <p className='text-slate-400'>Адрес</p>
             <select className='border p-2 w-full text-slate-400'>
               <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
+              <option value="" key="">Придорожная аллея, 7</option>
+              <option value="" key="">Учительская улица, 3</option>
             </select>
           </div>
-          <div>
-            <p className='text-slate-400'>Работник</p>
-            <select className='border p-2 w-full text-slate-400'>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">--Любой--</option>
-            </select>
-          </div>
-          <button className='bg-red-600 hover:bg-red-700 p-3 text-white font-semibold'>Отправить</button>
+          <button className='bg-red-600 hover:bg-gray-900 p-3 text-white font-semibold'>Отправить</button>
         </div>
       </div>
     </div>

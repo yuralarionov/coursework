@@ -64,7 +64,7 @@ const ReviewsList = [
 
 function Criteria({ svg, title, text }) {
   return (
-    <div className='bg-slate-100 flex flex-col gap-5 p-8'>
+    <div className='bg-slate-100 flex flex-col gap-5 p-10 m-5 md:p-8'>
       <button className='bg-red-700 h-16 w-16 flex justify-center items-center rounded-full'>{svg}</button>
       <h1 className='font-bold text-2xl'>{title}</h1>
       <p className='text-slate-500'>{text}</p>
@@ -103,7 +103,7 @@ export default function About() {
         <h1>ПОЧЕМУ СТОИТ ВЫБРАТЬ</h1>
         <h1 className='font-bold'>НАШ АВТОСАЛОН?</h1>
       </div>
-      <div className='flex flex-col w-full md:flex md:flex-row justify-center gap-10 px-20 py-10'>
+      <div className='flex flex-col w-full md:flex md:flex-row justify-center gap-10 md:px-20 md:py-10'>
         {ListJsx}
       </div>
       <div className='bg-zinc-900	w-full flex flex-col justify-between items-center p-14'>

@@ -68,24 +68,24 @@ export default function Home() {
     <main >
       <div className='w-full h-100 relative after:content-[""] after:absolute after:bg-black/50 after:top-0 after:left-0 after:right-0 after:bottom-0'>
         <img src={banner} alt='img' className='w-full h-full object-cover	absolute'/>
-        <div className='h-full flex flex-col justify-center relative text-slate-100	text-5xl p-20 z-10'>
+        <div className='flex flex-col justify-start md:justify-center relative text-slate-100 text-3xl md:text-5xl p-20 z-10 h-full'>
           <div>
-            <h1>ПОДБЕРЁМ МАШИНУ И НАСТРОИМ ЕЁ<br></br></h1>
-            <h1 className='font-bold'>СПЕЦИАЛЬНО ДЛЯ ВАС</h1>
+            <h1 className='flex flex-col md:flx-row'>ПОДБЕРЁМ МАШИНУ И НАСТРОИМ ЕЁ<br></br></h1>
+            <h1 className='flex flex-col  md:flex-row font-bold'>СПЕЦИАЛЬНО ДЛЯ ВАС</h1>
           </div>
-          <button onClick={formModalOpen} className='w-72 text-xl p-2.5 mt-10	bg-red-600 text-slate-100 font-bold hover:bg-gray-900 active:bg-red-700'>ЗАПИШИТЕСЬ НА ПРИЁМ</button>
+          <button onClick={formModalOpen} className=' md:w-72 text-xl p-2.5 mt-10	bg-red-600 text-slate-100 font-bold hover:bg-gray-900 active:bg-red-700'>ЗАПИШИТЕСЬ НА ПРИЁМ</button>
         </div>
       </div>
       <div className='grid grid-cols-1 md:grid-cols-2 justify-items-center lg:flex lg:flex-row justify-center gap-10 m-10'>
         {serviceListJsx}
       </div>
-      <div className='flex flex-row justify-center items-center w-full bg-red-700 py-5 text-white'>
+      <div className='flex flex-col md:flex-row justify-center items-center w-full bg-red-700 py-5 text-white'>
         <div className='flex flex-col border-x-8 border-dashed p-10'>
           <p className='text-lg'>Купон</p>
           <h1 className='font-bold text-6xl'>25%</h1>
           <h1 className='text-2xl'>СКИДКА</h1>
         </div>
-        <div className='flex flex-col p-20'>
+        <div className='flex flex-col p-10'>
           <h1 className='text-4xl'>НАШИ ПОСЛЕДНИЕ СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ</h1>
           <h1 className='text-4xl font-bold mt-1.5'>ЛЮБАЯ УСЛУГА НА СУММУ ОТ 5000 РУБЛЕЙ</h1>
           <p className='mt-3'>Мы ценим наших клиентов, поэтому хотим дать вам эту специальную скидку,<br/> чтобы вы могли использовать ее, чтобы сделать свой автомобиль лучше!</p>

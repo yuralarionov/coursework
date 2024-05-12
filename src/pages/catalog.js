@@ -344,7 +344,7 @@ function AvtoList({ img, model, price }) {
   );
 }
 
-function Modal({closeModal}) {
+export function Modal({closeModal}) {
   function handleClick(e) {
     if (e.target.classList.contains('js-modal')) {
       closeModal();
@@ -352,77 +352,77 @@ function Modal({closeModal}) {
   }
 
   return(
-    <div onClick={handleClick} className='js-modal w-full h-full bg-black/75 fixed z-30 top-0 left-0 flex justify-center items-center'>
-      <div className='flex flex-col justify-around items-center w-[550px] h-[450px] bg-white rounded-[40px]  relative'>
+    <div onClick={handleClick} data-testid="modal-out" className='js-modal w-full h-full bg-black/75 fixed z-30 top-0 left-0 flex justify-center items-center'>
+      <div data-testid="modal-body" className='flex flex-col justify-around items-center w-[550px] h-[450px] bg-white rounded-[40px]  relative'>
         <h1 className='font-bold text-3xl text-red-700'>Заказать автомобиль</h1>
-        <svg onClick={closeModal} className='h-6 hover:fill-red-700 cursor-pointer absolute top-5 right-5' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
+        <svg data-testid="modal-cross" onClick={closeModal} className='h-6 hover:fill-red-700 cursor-pointer absolute top-5 right-5' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
         <div className='flex flex-row w-full justify-center items-center gap-10'>
             <div className='flex flex-col justify-center items-center gap-2'>
               <div className='w-full'>
                 <h1 className='text-2xl text-red-700 font-bold'>Марка</h1>
                 <select className='border border-black py-2 w-full font-bold text-center'>
-                  <option value="" key="">--Выберите--</option>
-                    <option value="" key="">Toyota</option>
-                    <option value="" key="">Audi</option>
-                    <option value="" key="">Nissan</option>
-                    <option value="" key="">BMW</option>
-                    <option value="" key="">Mazda</option>
-                    <option value="" key="">Porshe</option>
-                    <option value="" key="">Honda</option>
-                    <option value="" key="">Mitsubishi</option>
-                    <option value="" key="">Subaru</option>
+                  <option value="" >--Выберите--</option>
+                    <option value="" >Toyota</option>
+                    <option value="" >Audi</option>
+                    <option value="" >Nissan</option>
+                    <option value="" >BMW</option>
+                    <option value="" >Mazda</option>
+                    <option value="" >Porshe</option>
+                    <option value="" >Honda</option>
+                    <option value="" >Mitsubishi</option>
+                    <option value="" >Subaru</option>
                 </select>
               </div>
               <div className='w-full'>
                 <h1 className='text-2xl text-red-700 font-bold'>Модель</h1>
                 <select className='border border-black py-2 w-full font-bold text-center'>
-                    <option value="" key="">--Выберите--</option>
-                    <option value="" key="">Trueno AE-86</option>
-                    <option value="" key="">Celica</option>
-                    <option value="" key="">Chaser</option>
-                    <option value="" key="">Crown</option>
-                    <option value="" key="">Mark 2</option>
-                    <option value="" key="">Supra</option>
-                    <option value="" key="">A7</option>
-                    <option value="" key="">R7</option>
-                    <option value="" key="">R8</option>
-                    <option value="" key="">RS6</option>
-                    <option value="" key="">RS7</option>
-                    <option value="" key="">TT RS</option>
-                    <option value="" key="">R32</option>
-                    <option value="" key="">R33</option>
-                    <option value="" key="">R34</option>
-                    <option value="" key="">S13</option>
-                    <option value="" key="">S14</option>
-                    <option value="" key="">S15</option>
-                    <option value="" key="">180SX</option>
-                    <option value="" key="">240SX</option>
-                    <option value="" key="">5-series E34</option>
-                    <option value="" key="">M3 E36</option>
-                    <option value="" key="">M5 F90</option>
-                    <option value="" key="">i8</option>
-                    <option value="" key="">MX-5</option>
-                    <option value="" key="">RX-7 FC</option>
-                    <option value="" key="">RX-7 FD</option>
-                    <option value="" key="">RX-8</option>
-                    <option value="" key="">Carrera GT</option>
-                    <option value="" key="">Panamera</option>
-                    <option value="" key="">Taycan</option>
-                    <option value="" key="">911 Turbo S</option>
-                    <option value="" key="">Civic</option>
-                    <option value="" key="">NSX</option>
-                    <option value="" key="">Prelude</option>
-                    <option value="" key="">S2000</option>
-                    <option value="" key="">Eclipse</option>
-                    <option value="" key="">Lancer Evolution IV</option>
-                    <option value="" key="">Lancer Evolution IX</option>
-                    <option value="" key="">Lancer Evolution V</option>
-                    <option value="" key="">Lancer Evolution X</option>
-                    <option value="" key="">BRZ</option>
-                    <option value="" key="">Forester</option>
-                    <option value="" key="">Legacy</option>
-                    <option value="" key="">Levorg</option>
-                    <option value="" key="">Impreza WRX STI</option>
+                    <option value="" >--Выберите--</option>
+                    <option value="" >Trueno AE-86</option>
+                    <option value="" >Celica</option>
+                    <option value="" >Chaser</option>
+                    <option value="" >Crown</option>
+                    <option value="" >Mark 2</option>
+                    <option value="" >Supra</option>
+                    <option value="" >A7</option>
+                    <option value="" >R7</option>
+                    <option value="" >R8</option>
+                    <option value="" >RS6</option>
+                    <option value="" >RS7</option>
+                    <option value="" >TT RS</option>
+                    <option value="" >R32</option>
+                    <option value="" >R33</option>
+                    <option value="" >R34</option>
+                    <option value="" >S13</option>
+                    <option value="" >S14</option>
+                    <option value="" >S15</option>
+                    <option value="" >180SX</option>
+                    <option value="" >240SX</option>
+                    <option value="" >5-series E34</option>
+                    <option value="" >M3 E36</option>
+                    <option value="" >M5 F90</option>
+                    <option value="" >i8</option>
+                    <option value="" >MX-5</option>
+                    <option value="" >RX-7 FC</option>
+                    <option value="" >RX-7 FD</option>
+                    <option value="" >RX-8</option>
+                    <option value="" >Carrera GT</option>
+                    <option value="" >Panamera</option>
+                    <option value="" >Taycan</option>
+                    <option value="" >911 Turbo S</option>
+                    <option value="" >Civic</option>
+                    <option value="" >NSX</option>
+                    <option value="" >Prelude</option>
+                    <option value="" >S2000</option>
+                    <option value="" >Eclipse</option>
+                    <option value="" >Lancer Evolution IV</option>
+                    <option value="" >Lancer Evolution IX</option>
+                    <option value="" >Lancer Evolution V</option>
+                    <option value="" >Lancer Evolution X</option>
+                    <option value="" >BRZ</option>
+                    <option value="" >Forester</option>
+                    <option value="" >Legacy</option>
+                    <option value="" >Levorg</option>
+                    <option value="" >Impreza WRX STI</option>
                 </select>
               </div>
             </div>
@@ -446,21 +446,21 @@ export default function Catalog() {
         <div className='flex flex-col justify-center items-center'>
           <p className='text-red-700 font-bold text-2xl mb-2'>Марка</p>
           <select className='border-2 border-black py-3 px-20 w-full font-bold'>
-            <option value="" key="">--Любой--</option>
-            <option value="" key="">--Любой--</option>
-            <option value="" key="">--Любой--</option>
-            <option value="" key="">--Любой--</option>
-            <option value="" key="">--Любой--</option>
+            <option value="" >--Любой--</option>
+            <option value="" >--Любой--</option>
+            <option value="" >--Любой--</option>
+            <option value="" >--Любой--</option>
+            <option value="" >--Любой--</option>
           </select>
         </div>
         <div className='flex flex-col justify-center items-center'>
           <p className='text-red-700 font-bold text-2xl mb-2'>Модель</p>
           <select className='border-2 border-black py-3 px-20 w-full font-bold'>
-            <option value="" key="">--Любой--</option>
-            <option value="" key="">--Любой--</option>
-            <option value="" key="">--Любой--</option>
-            <option value="" key="">--Любой--</option>
-            <option value="" key="">--Любой--</option>
+            <option value="" >--Любой--</option>
+            <option value="" >--Любой--</option>
+            <option value="" >--Любой--</option>
+            <option value="" >--Любой--</option>
+            <option value="" >--Любой--</option>
           </select>
         </div>
         <div className='flex items-end'>

@@ -98,7 +98,6 @@ export default function About() {
 );
   return (
     <main className='lg:flex lg:flex-col justify-center items-center'>
-      
       <div className='flex flex-col justify-center items-center text-5xl text-center pt-10'>
         <h1>ПОЧЕМУ СТОИТ ВЫБРАТЬ</h1>
         <h1 className='font-bold'>НАШ АВТОСАЛОН?</h1>

@@ -75,7 +75,7 @@ export default function Contact() {
 }
 
 
-function Modal({closeModal}) {
+export function Modal({closeModal}) {
   function handleClick(e) {
     if (e.target.classList.contains('js-modal')) {
       closeModal();
@@ -83,10 +83,10 @@ function Modal({closeModal}) {
   }
 
   return(
-    <div onClick={handleClick} className='js-modal fixed z-30 top-0 left-0 w-full h-full bg-black/75 flex justify-end'>
-      <div className='w-full md:w-1/2 lg:w-1/4 bg-white h-full appear-animation'>
+    <div onClick={handleClick} data-testid="modal-out" className='js-modal fixed z-30 top-0 left-0 w-full h-full bg-black/75 flex justify-end'>
+      <div data-testid="modal-body" className='w-full md:w-1/2 lg:w-1/4 bg-white h-full appear-animation'>
         <div className='flex justify-end'>
-          <div onClick={closeModal} className='bg-black h-8 w-8 flex justify-center items-center'>
+          <div data-testid="modal-cross" onClick={closeModal} className='bg-black h-8 w-8 flex justify-center items-center'>
             <svg className='h-6 fill-white font-light hover:fill-red-700' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
           </div>
         </div>
@@ -95,29 +95,29 @@ function Modal({closeModal}) {
           <div>
             <p className='text-slate-400'>Категории обслуживания</p>
             <select className='border p-2 w-full text-slate-400'>
-              <option value="" key="">--Любая--</option>
-              <option value="" key="">Покупка машины</option>
-              <option value="" key="">Профилактическое обслуживание</option>
-              <option value="" key="">Полный ремонт</option>
-              <option value="" key="">Тюнинг</option>
+              <option value="" >--Любая--</option>
+              <option value="" >Покупка машины</option>
+              <option value="" >Профилактическое обслуживание</option>
+              <option value="" >Полный ремонт</option>
+              <option value="" >Тюнинг</option>
             </select>
           </div>
           <div>
             <p className='text-slate-400'>Услуга</p>
             <select className='border p-2 w-full text-slate-400'>
-              <option value="" key="">--Любая--</option>
-              <option value="" key="">Ремонт и замена тормозов</option>
-              <option value="" key="">Ремонт топливной системы</option>
-              <option value="" key="">Мойка и детейлинг</option>
-              <option value="" key="">Ремонт электрики</option>
+              <option value="" >--Любая--</option>
+              <option value="" >Ремонт и замена тормозов</option>
+              <option value="" >Ремонт топливной системы</option>
+              <option value="" >Мойка и детейлинг</option>
+              <option value="" >Ремонт электрики</option>
             </select>
           </div>
           <div>
             <p className='text-slate-400'>Адрес</p>
             <select className='border p-2 w-full text-slate-400'>
-              <option value="" key="">--Любой--</option>
-              <option value="" key="">Придорожная аллея, 7</option>
-              <option value="" key="">Учительская улица, 3</option>
+              <option value="" >--Любой--</option>
+              <option value="" >Придорожная аллея, 7</option>
+              <option value="" >Учительская улица, 3</option>
             </select>
           </div>
           <button className='bg-red-600 hover:bg-gray-900 p-3 text-white font-semibold'>Отправить</button>
